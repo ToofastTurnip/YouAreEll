@@ -135,7 +135,7 @@ json payload for /messages/ these are samples, one to a specific friend, one to 
     "sequence": "-",
     "timestamp": "_",
     "fromid": "xt0fer",
-    "toid": "kristofer",
+    "toId": "kristofer",
     "message": "Hello, Kristofer!"
   },
 
@@ -143,7 +143,7 @@ json payload for /messages/ these are samples, one to a specific friend, one to 
     "sequence": "-",
     "timestamp": "_",
     "fromid": "xt0fer",
-    "toid": "",
+    "toId": "",
     "message": "Hello, World!"
   }
 ]
@@ -162,7 +162,7 @@ send xt0fer 'Hello old buddy!' to torvalds
      "sequence": "-",
      "timestamp": "_",
      "fromid": "xt0fer",
-     "toid": "torvalds",
+     "toId": "torvalds",
      "message": "Hello old buddy!"
    }
  ```
