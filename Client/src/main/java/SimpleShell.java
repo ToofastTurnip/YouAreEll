@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +21,7 @@ public class SimpleShell {
         BufferedReader console = new BufferedReader
                 (new InputStreamReader(System.in));
 
+        ObjectMapper mapper = new ObjectMapper();
         ProcessBuilder pb = new ProcessBuilder();
         List<String> history = new ArrayList<String>();
         int index = 0;

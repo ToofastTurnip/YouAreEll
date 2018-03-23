@@ -41,14 +41,11 @@ public class YouAreEll {
     public String MakeURLCall(String mainUrl, String method, String jpayload) {
         String fullUrl = baseUrl + mainUrl;
         Request request = null;
-
-        if (method.equalsIgnoreCase("get")) {
+        if (method.equalsIgnoreCase("GET")) {
             request = new Request.Builder()
                     .url(fullUrl)
                     .build();
         }
-
-
         if (method.equalsIgnoreCase("POST")) {
             RequestBody body = RequestBody.create(JSON, jpayload);
             request = new Request.Builder()
@@ -56,7 +53,6 @@ public class YouAreEll {
                     .post(body)
                     .build();
         }
-
         if (method.equalsIgnoreCase("PUT")) {
             RequestBody body = RequestBody.create(JSON, jpayload);
             request = new Request.Builder()
@@ -64,15 +60,14 @@ public class YouAreEll {
                     .put(body)
                     .build();
         }
-
         if (request != null) {
             try (Response response = client.newCall(request).execute()) {
-                return response.body().string();
-            } catch (IOException e) {
+                return response.body().toString();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
         return "error: bad method " + method;
     }
+
 }
