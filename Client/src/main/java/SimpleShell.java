@@ -21,7 +21,6 @@ public class SimpleShell {
         BufferedReader console = new BufferedReader
                 (new InputStreamReader(System.in));
 
-        ObjectMapper mapper = new ObjectMapper();
         ProcessBuilder pb = new ProcessBuilder();
         List<String> history = new ArrayList<String>();
         int index = 0;
@@ -90,20 +89,20 @@ public class SimpleShell {
                 }
 
                 // wait, wait, what curiousness is this?
-                Process process = pb.start();
-
-                //obtain the input stream
-                InputStream is = process.getInputStream();
-                InputStreamReader isr = new InputStreamReader(is);
-                BufferedReader br = new BufferedReader(isr);
-
-                //read output of the process
-                String line;
-                while ((line = br.readLine()) != null)
-                    System.out.println(line);
-                br.close();
-
-
+//                Process process = pb.start();
+//
+//                //obtain the input stream
+//                InputStream is = process.getInputStream();
+//                InputStreamReader isr = new InputStreamReader(is);
+//                BufferedReader br = new BufferedReader(isr);
+//
+//                //read output of the process
+//                String line;
+//                while ((line = br.readLine()) != null)
+//                    System.out.println(line);
+//                br.close();
+                ThreadCall threadCall = new ThreadCall();
+                threadCall.run(pb);
             }
 
             //catch ioexception, output appropriate message, resume waiting for input
@@ -120,7 +119,6 @@ public class SimpleShell {
              */
 
         }
-
 
     }
 
